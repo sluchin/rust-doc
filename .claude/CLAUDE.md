@@ -1,6 +1,6 @@
 # プロジェクト設定
 
-Rust のドキュメント (The Rust Programming Language: https://doc.rust-lang.org/stable/book/ と、The Rustonomicon: https://doc.rust-lang.org/nomicon/) をリンクを開いたときに取得して、日本語に翻訳して表示するアプリ。原文 (英語) に戻せる。2 つのドキュメントは、画面の上のタブで切り替える。PC (Linux, Windows, macOS) と Android。Tauri 2 (Rust) + React (TypeScript)。
+Rust のドキュメント (The Rust Programming Language: https://doc.rust-lang.org/<版>/book/ と、The Rustonomicon: https://doc.rust-lang.org/<版>/nomicon/) をリンクを開いたときに取得して、日本語に翻訳して表示するアプリ。原文 (英語) に戻せる。2 つのドキュメントは、画面の上のタブで切り替える。PC (Linux, Windows, macOS) と Android。Tauri 2 (Rust) + React (TypeScript)。
 
 ```
 リンクを開く ─> Rust (docs.rs): ページを取得 (doc.rust-lang.org だけ)
@@ -19,7 +19,7 @@ Rust のドキュメント (The Rust Programming Language: https://doc.rust-lang
 
 ## セキュリティの決まり (守ること)
 
-- 取得するのは `https://doc.rust-lang.org/stable/book/` と `https://doc.rust-lang.org/nomicon/` のページだけ (パスの検査は `lib/docUrl.ts` の `isDocUrl`。Rust 側 `docs.rs` の `is_doc_url` は、ホストだけを検査する)。リダイレクトも、そのホストの中だけ。ほかのリンクはブラウザで開く。
+- 取得するのは `https://doc.rust-lang.org/<版>/book/` と `https://doc.rust-lang.org/<版>/nomicon/` のページだけ (パスの検査は `lib/docUrl.ts` の `isDocUrl`。Rust 側 `docs.rs` の `is_doc_url` は、ホストだけを検査する)。リダイレクトも、そのホストの中だけ。ほかのリンクはブラウザで開く。
 - 表示する HTML は取得したものも、翻訳されたものも、必ず `sanitize()` (DOMPurify) を通す。`dangerouslySetInnerHTML` に渡すのはその結果だけ。
 - CSP (`tauri.conf.json`) は画像を `doc.rust-lang.org` と `data:` だけに限る。広げない。
 - ドキュメントの文章をリポジトリに置かない (テストの HTML は作り物)。ページの取得は利用者がリンクを開いたときだけ (事前の取得、巡回はしない)。名前を名乗る User-Agent を付ける。
@@ -28,7 +28,9 @@ Rust のドキュメント (The Rust Programming Language: https://doc.rust-lang
 
 - 2 つとも mdBook で作られている。本文は `main`。取り除くもの (`removeSelectors`): `.boring` (コードの例の隠れた行。サイトの画面では、隠れている), `button`, `input`, `.img-wrapper` (Nomicon の、画像を重ねて出す枠)。
 - タイトルの末尾 (` - The Rust Programming Language`、` - The Rustonomicon`) は取り除く。
-- 最初のページは、The Book が `https://doc.rust-lang.org/stable/book/index.html`、Nomicon が `https://doc.rust-lang.org/nomicon/index.html`。**末尾の `/` のない `/nomicon` や `/stable/book` は、`/doc/stable/...` へリダイレクトされるので使わない。**
+- 版: パスの先頭 (`/1.99.1/book/`)。`SiteProfile.versions` (共通のコード) で、画面で選ぶ。最初のページは、版を固定した `https://doc.rust-lang.org/1.99.1/book/index.html` (Nomicon は `/1.99.1/nomicon/index.html`)。版を上げるのは、利用者が画面で選んだとき。新しい安定版が出たら、`src/site.ts` の `FIRST_VERSION` を上げてよい。
+- 版の一覧は、ページにないので、`https://doc.rust-lang.org/stable/std/index.html` の `data-rustdoc-version` (今の安定版) から作る (`rustVersions`。今の安定版と、その前の 20 版の `x.y.0`)。タブのパスの先頭は、版を除いたパス (`/book/`、`/nomicon/`)。目次の `toc.html` も、今の版のものを読む。翻訳のキャッシュは、版ごとに分ける。
+- **末尾の `/` のない `/nomicon` や `/stable/book` は、`/doc/stable/...` へリダイレクトされるので使わない。**
 - アイコンはオリジナル (さび色の地に、開いた本と波括弧と、「文」の丸)。**Rust のロゴ (歯車) と、Ferris を使わない。**
 
 ## コマンド
