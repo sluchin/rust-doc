@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- デスクトップのアイコン: 背景と前景を重ねた, 角丸の四角. 開いた本と, 波括弧 (コード) と, 黄色い丸に「文」(翻訳). 独自の絵 -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c2d12"/>
+      <stop offset="1" stop-color="#ea6a2b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="224" fill="url(#g)"/>
+  <path d="M512 352 C452 322 382 318 318 332 V640 C382 626 452 630 512 662 Z" fill="#ffffff"/>
+  <path d="M512 352 C572 322 642 318 706 332 V640 C642 626 572 630 512 662 Z" fill="#ffffff"/>
+  <g fill="none" stroke="#7c2d12" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M458 400 Q418 400 418 438 V462 Q418 482 392 482 Q418 482 418 502 V526 Q418 564 458 564"/>
+    <path d="M566 400 Q606 400 606 438 V462 Q606 482 632 482 Q606 482 606 502 V526 Q606 564 566 564"/>
+  </g>
+  <circle cx="676" cy="676" r="124" fill="#ffd166"/>
+  <g fill="none" stroke="#7c2d12" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M676 602 V616"/>
+    <path d="M630 630 H722"/>
+    <path d="M668 634 C 662 670 640 700 612 722"/>
+    <path d="M632 652 C 660 668 690 690 724 724"/>
+  </g>
+</svg>
