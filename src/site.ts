@@ -48,7 +48,7 @@ export function rustVersions(text: string): VersionChoice[] {
  * 各ドキュメントの `toc.html` にある (番号つきの一覧 `ol`).
  */
 export const site: SiteProfile = {
-  name: "Rust Doc",
+  name: "Rust Doc Trans",
   host: "doc.rust-lang.org",
   pathPrefix: "/",
   homeUrl: `${ORIGIN}/${FIRST_VERSION}/book/index.html`,

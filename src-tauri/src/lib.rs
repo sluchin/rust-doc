@@ -10,7 +10,7 @@ use doc_translator_core::Site;
 const SITE: Site = Site {
     host: "doc.rust-lang.org",
     alt_host: None,
-    user_agent: "rust-doc/0.1 (+https://github.com/sluchin/rust-doc)",
+    user_agent: "rust-doc-trans/0.1 (+https://github.com/sluchin/rust-doc-trans)",
 };
 
 /// アプリを起動する.

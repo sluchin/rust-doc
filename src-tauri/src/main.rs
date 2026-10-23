@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    rust_doc_lib::run()
+    rust_doc_trans_lib::run()
 }

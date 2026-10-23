@@ -1,4 +1,4 @@
-# rust-doc
+# rust-doc-trans
 
 Rust のドキュメント (The Rust Programming Language: https://doc.rust-lang.org/<版>/book/ と、The Rustonomicon: https://doc.rust-lang.org/<版>/nomicon/) を**リンクを開いたときに** 取得して、日本語に翻訳して表示するアプリです (事前に翻訳したものはありません)。「原文に戻す」で、英語に戻せます。画面の上の**タブ**で、2 つのドキュメント (The Book と Nomicon) を切り替えます。PC (Linux, Windows, macOS) と Android で動きます。
 
@@ -43,10 +43,10 @@ Rust のドキュメント (The Rust Programming Language: https://doc.rust-lang
 
 ## 共通のコード (サブモジュール)
 
-画面、HTML の取り出し、翻訳、取得、キャッシュ、ML Kit のプラグインは**共通のリポジトリ** [doc-translator-core](https://github.com/sluchin/doc-translator-core) にあります (サブモジュール `shared/`)。このリポジトリには Rust のドキュメントだけの設定 (`src/site.ts` と `src-tauri/src/lib.rs` の `SITE`) と、アイコンと、アプリの設定だけがあります。姉妹アプリは [zephyr-doc](https://github.com/sluchin/zephyr-doc) (Zephyr)、[kotlin-doc](https://github.com/sluchin/kotlin-doc) (Kotlin) などです。
+画面、HTML の取り出し、翻訳、取得、キャッシュ、ML Kit のプラグインは**共通のリポジトリ** [doc-translator-core](https://github.com/sluchin/doc-translator-core) にあります (サブモジュール `shared/`)。このリポジトリには Rust のドキュメントだけの設定 (`src/site.ts` と `src-tauri/src/lib.rs` の `SITE`) と、アイコンと、アプリの設定だけがあります。姉妹アプリは [zephyr-doc-trans](https://github.com/sluchin/zephyr-doc-trans) (Zephyr)、[kotlin-doc-trans](https://github.com/sluchin/kotlin-doc-trans) (Kotlin) などです。
 
 ```bash
-git clone --recurse-submodules git@github.com:sluchin/rust-doc.git   # 取り込み済みなら: git submodule update --init
+git clone --recurse-submodules git@github.com:sluchin/rust-doc-trans.git   # 取り込み済みなら: git submodule update --init
 ```
 
 ## 開発 (Docker)

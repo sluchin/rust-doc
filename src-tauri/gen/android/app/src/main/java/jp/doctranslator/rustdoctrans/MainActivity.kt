@@ -1,4 +1,4 @@
-package jp.sluchin.rustdoc
+package jp.doctranslator.rustdoctrans
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

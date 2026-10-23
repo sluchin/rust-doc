@@ -3198,7 +3198,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-doc"
+name = "rust-doc-trans"
 version = "0.1.0"
 dependencies = [
  "doc-translator-core",
